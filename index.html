@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Go Forth and Quest!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="mainGameContainer">
+    <div id="gameLeft">
+      <h1>Go Forth and Quest!</h1>
+      <h3 id="playerInfo"></h3>
+      <p id="storyText">Press Start to begin.</p>
+      <p id="effectText"></p>
+      <p id="roomInfo">Challenge: 0 Damage: 0</p>
+      <p id="roomTracker">Zone: 0 Room: 0</p>
+      <p id="advantageText"></p>
+      <button id="restartBtn">Start</button>
+      <button id="attackBtn" disabled>Attack</button>
+      <button id="specialBtn">Load</button>
+      <section id="inventorySection">
+        <h2>Character Items</h2>
+        <ul id="inventory"></ul>
+      </section>
+      <details id="adventurersGuide" open>
+        <summary>Adventurer's Guide</summary>
+        <section id="itemListSection">
+          <h2>Items</h2>
+          <ul id="itemList"></ul>
+        </section>
+        <section id="classInfo">
+          <h2>Classes</h2>
+          <ul>
+            <li><strong>Warrior</strong>: 10 HP, advantage vs Humanoids, 1 special use to gain a level, and takes 1 less
+              damage from non-trap monsters.</li>
+            <li><strong>Hunter</strong>: 9 HP, advantage vs Beasts, 2 special uses to reroll the current room, and gains
+              Beast
+              damage in levels when defeating Beasts.</li>
+            <li><strong>Thief</strong>: 8 HP, advantage vs Giants and Traps, 1 special use to sneak past the current room
+              without damage or level gain, and takes no damage from traps.</li>
+            <li><strong>Cleric</strong>: 7 HP, advantage vs Undead, 1 special use that heals to full and defeats an Undead
+              encounter, plus passive healing after every room up to HP + level.</li>
+            <li><strong>Mage</strong>: 6 HP, advantage vs Fey and Fiends, 1 special use that casts a random spell with
+              varied
+              effects and recovers after each room.</li>
+          </ul>
+        </section>
+      </details>
+    </div>
+    <div id="monsterImageContainer">
+      <img id="monsterImage" src="" alt="Monster" />
+    </div>
+    <div id="itemImageContainer" style="display:none">
+      <img id="itemImage" src="" alt="Item" />
+    </div>
+  </div>
+
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal-box">
+      <p id="modalMessage"></p>
+      <input id="modalInput" type="text" class="hidden" />
+      <div id="modalChoices" class="modal-choices"></div>
+      <div id="modalActions" class="modal-actions">
+        <button id="modalConfirmBtn" type="button">OK</button>
+        <button id="modalCancelBtn" type="button">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+
+</body>
+
+</html>
