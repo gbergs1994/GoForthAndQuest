@@ -36,13 +36,23 @@ Notes:
 
 # addlist
 Things to add later: 
+Gold
+Gain gold equal to the challenge of a creature when they are beaten.
+Can spend gold when returning to the Village: 
+- Church: Pay for healing 
+- Market: Buy new Items 
+- Tavern: Hire a companion 
 
 New Classes
-    Dwarf: 
-    Elf: 
+- Dwarf: 
+- Elf: 
+- Hoarder: Can hold 3 items, must drop an old item when picking up a 4th. Can use their Special to...
+- Angler: Advantage on Attacks against Aquatic. Can use their Special to...
+- Gardener: Advantage on Attacks against Plants and Fungus. Can use their Special to...
 
-New Hazards
-    beartrap
-    medusa
-    lamia
-    bugtitan
+New Items
+- 
+
+New Zones, Encounters, Bosses
+- Fields, Graveyard, Ruins, Crypt: Elder Lich
+

@@ -137,12 +137,12 @@ const ZONE_CONNECTIONS = {
   River: ["Jungle", "Hills"],
   Copse: ["Hills", "Woods"],
   Coast: ["Tundra", "Desert"],
-  Jungle: ["Desert", "Mountain"],
-  Hills: ["Mountain", "Cave"],
+  Jungle: ["Desert", "Mountains"],
+  Hills: ["Mountains", "Cave"],
   Woods: ["Cave", "Forest"],
-  Tundra: ["Tower", "Temple"],
-  Desert: ["Temple", "Peak"],
-  Mountain: ["Peak", "Volcano"],
+  Tundra: ["Tower", "Pyramid"],
+  Desert: ["Pyramid", "Summit"],
+  Mountains: ["Summit", "Volcano"],
   Cave: ["Volcano", "Maze"],
   Forest: ["Maze", "Grove"]
 };
@@ -301,27 +301,27 @@ const ROOMS_BY_ZONE = {
     { name: "Spider", type: "Beast" },
     { name: "Pixie", type: "Fey" },
     { name: "Imp", type: "Fiend" },
-    { name: "Shrub", type: "Fey" },
+    { name: "Shrub", type: "Plant" },
     { name: "Angry Farmer", type: "Humanoid" }
   ],
   Beach: [
-    { name: "Crab", type: "Beast" },
-    { name: "Octopus", type: "Beast" },
+    { name: "Crab", type: "Aquatic" },
+    { name: "Octopus", type: "Aquatic" },
     { name: "Zombie", type: "Undead" },
-    { name: "Cockatrice", type: "Beast" },
+    { name: "Cockatrice", type: "Monster" },
     { name: "Fishman", type: "Humanoid" },
-    { name: "Snailor", type: "Beast" }
+    { name: "Snailor", type: "Monster" }
   ],
   River: [
     { name: "Baboon", type: "Beast" },
     { name: "Gnome", type: "Fey" },
     { name: "Boar", type: "Beast" },
     { name: "Dryad", type: "Fey" },
-    { name: "Carnivore Fish", type: "Beast" },
+    { name: "Carnivore Fish", type: "Aquatic" },
     { name: "Goblin", type: "Humanoid" }
   ],
   Copse: [
-    { name: "Funguy", type: "Plant" },
+    { name: "Funguy", type: "Fungus" },
     { name: "Sapling", type: "Plant" },
     { name: "Stumpling", type: "Plant" },
     { name: "Satyr", type: "Fey" },
@@ -329,18 +329,18 @@ const ROOMS_BY_ZONE = {
     { name: "Badger", type: "Beast" }
   ],
   Coast: [
-    { name: "Deeplurker", type: "Beast" },
+    { name: "Harpy", type: "Monster" },
     { name: "Kelpie", type: "Fey" },
     { name: "Bloater", type: "Undead" },
     { name: "Mud Golem", type: "Giant" },
-    { name: "Deep One Pirate", type: "Humanoid" },
-    { name: "Deep One Cultist", type: "Humanoid" }
+    { name: "Deep One Pirate", type: "Aquatic" },
+    { name: "Deep One Cultist", type: "Aquatic" }
   ],
   Hills: [
-    { name: "Rust Bug", type: "Beast" },
+    { name: "Rust Bug", type: "Monster" },
     { name: "Minotaur", type: "Giant" },
     { name: "Kobold", type: "Dragon" },
-    { name: "Harpy", type: "Beast" },
+    { name: "Deeplurker", type: "Aquatic" },
     { name: "Hyena", type: "Beast" },
     { name: "Giant Centipede", type: "Beast" }
   ],
@@ -348,12 +348,12 @@ const ROOMS_BY_ZONE = {
     { name: "Vine Golem", type: "Plant" },
     { name: "Carnivore Plant", type: "Plant" },
     { name: "Poison Spider", type: "Beast" },
-    { name: "Willowisp", type: "Fey" },
-    { name: "Froggart", type: "Beast" },
+    { name: "Willowisp", type: "Undead" },
+    { name: "Froggart", type: "Humanoid" },
     { name: "Goblin Shaman", type: "Humanoid" }
   ],
   Woods: [
-    { name: "Fungal Infected", type: "Plant" },
+    { name: "Fungal Infected", type: "Fungus" },
     { name: "Wolf", type: "Beast" },
     { name: "Bandit", type: "Humanoid" },
     { name: "Lycanthrope", type: "Beast" },
@@ -376,24 +376,24 @@ const ROOMS_BY_ZONE = {
     { name: "Tundra Werewolf", type: "Beast" },
     { name: "Snowy Kobold", type: "Dragon" }
   ],
-  Mountain: [
+  Mountains: [
     { name: "Bloodsucker", type: "Beast" },
-    { name: "Yeti", type: "Beast" },
-    { name: "Horned Hag", type: "Humanoid" },
-    { name: "Manticore", type: "Beast" },
+    { name: "Yeti", type: "Giant" },
+    { name: "Horned Hag", type: "Fey" },
+    { name: "Manticore", type: "Monster" },
     { name: "Banshee", type: "Undead" },
     { name: "Hill Giant", type: "Giant" }
   ],
   Cave: [
-    { name: "Cave Strangler", type: "Beast" },
-    { name: "Gemsthrall", type: "Humanoid" },
-    { name: "Lava Froggart", type: "Beast" },
+    { name: "Cave Strangler", type: "Monster" },
+    { name: "Gemsthrall", type: "Undead" },
+    { name: "Lava Froggart", type: "Humanoid" },
     { name: "Bug Titan", type: "Giant" },
-    { name: "Slime", type: "Beast" },
-    { name: "Beakwyrm", type: "Beast" }
+    { name: "Slime", type: "Monster" },
+    { name: "Beakwyrm", type: "Monster" }
   ],
   Forest: [
-    { name: "Fungal Juggernaut", type: "Plant" },
+    { name: "Fungal Juggernaut", type: "Fungus" },
     { name: "Redcap", type: "Fey" },
     { name: "Witch", type: "Humanoid" },
     { name: "Troll", type: "Giant" },
@@ -405,8 +405,8 @@ const ROOMS_BY_ZONE = {
 // Each final zone has one specific boss
 const BOSSES_BY_ZONE = {
   Tower: { name: "Arch Devil", type: "Fiend" },
-  Temple: { name: "Ancient Pharoah", type: "Undead" },
-  Peak: { name: "Frost Giant", type: "Giant" },
+  Pyramid: { name: "Ancient Pharoah", type: "Undead" },
+  Summit: { name: "Frost Giant", type: "Giant" },
   Volcano: { name: "Fire Drake", type: "Dragon" },
   Maze: { name: "Huge Arachnid", type: "Beast" },
   Grove: { name: "Fey Queen", type: "Fey" }
@@ -538,7 +538,7 @@ const TRAPS_BY_ZONE = {
   River: "Loose Gravel",
   Jungle: "Pitfall",
   Woods: "Bear Trap",
-  Mountain: "Rolling Boulder",
+  Mountains: "Rolling Boulder",
   Cave: "Pitfall",
   Forest: "Swinging Log"
 };
@@ -713,7 +713,9 @@ async function attack() {
   if (isAttack && lance) bonus += 1;
   if (isTrap && cloak) bonus += 2;
   let challengeMod = shield ? -1 : 0;
-  let result = usedRoll + player.level + bonus;
+  // The level bonus to the roll caps at 10, even though a player can reach level 20
+  let levelBonus = Math.min(player.level, 10);
+  let result = usedRoll + levelBonus + bonus;
 
   if (gameState === "won") {
     gameState = "playing";
@@ -748,7 +750,7 @@ async function attack() {
     const successVerb = isTrap ? "avoid" : "overcome";
     const rewardText = gainedLevel ? " and gain a level" : "";
     setEffectText(
-      `You rolled ${usedRoll} + ${player.level}${bonus ? ` +${bonus}` : ""} = ${result} vs ${currentEnemy.challenge}${challengeMod ? (challengeMod > 0 ? `+${challengeMod}` : challengeMod) : ""}.${advantageText}\n\nHuzzah! You ${successVerb} the ${currentEnemy.name}${rewardText}.`
+      `You rolled ${usedRoll} + ${levelBonus}${bonus ? ` +${bonus}` : ""} = ${result} vs ${currentEnemy.challenge}${challengeMod ? (challengeMod > 0 ? `+${challengeMod}` : challengeMod) : ""}.${advantageText}\n\nHuzzah! You ${successVerb} the ${currentEnemy.name}${rewardText}.`
     );
   } else {
     const damageReduction =
@@ -761,7 +763,7 @@ async function attack() {
     player.hp -= damageTaken;
 
     setEffectText(
-      `You rolled ${usedRoll} + ${player.level}${bonus ? ` +${bonus}` : ""} = ${result} vs ${currentEnemy.challenge}${challengeMod ? (challengeMod > 0 ? `+${challengeMod}` : challengeMod) : ""}.${advantageText}\n\nOuch! You take ${damageTaken} damage trying to overcome the ${currentEnemy.name}.`
+      `You rolled ${usedRoll} + ${levelBonus}${bonus ? ` +${bonus}` : ""} = ${result} vs ${currentEnemy.challenge}${challengeMod ? (challengeMod > 0 ? `+${challengeMod}` : challengeMod) : ""}.${advantageText}\n\nOuch! You take ${damageTaken} damage trying to overcome the ${currentEnemy.name}.`
     );
 
     // Game Over if HP 0 or lower
@@ -985,7 +987,6 @@ function winGame() {
     setEncounterText(
       "Congratulations! You have defeated every boss and fully conquered Go Forth and Quest!"
     );
-    setEffectText("");
     disableButtons();
     updateUI();
     saveGame();
@@ -995,7 +996,6 @@ function winGame() {
   setEncounterText(
     `You Have Conquered the Quest! \nPress Rest at Village to recover and continue your quest.`
   );
-  setEffectText("");
   document.getElementById("attackBtn").innerText = "Rest at Village"; // Attack button becomes Rest at Village
   document.getElementById("specialBtn").innerText = "Retire Hero";
   document.getElementById("attackBtn").disabled = false;
@@ -1074,7 +1074,13 @@ function updateUI() {
     : "Challenge: 0 Damage: 0";
 
   const tracker = document.getElementById("roomTracker");
-  const roomPosition = getZoneRoomForIndex(Math.min(roomsCleared, BOSS_ROOM_INDEX));
+  let displayRoomsCleared = Math.min(roomsCleared, BOSS_ROOM_INDEX);
+  // Keep showing the just-finished zone until its treasure is resolved and the next zone is chosen
+  const pendingTier = getZoneForProgress(displayRoomsCleared);
+  if (pendingTier > 1 && !zonePath[pendingTier]) {
+    displayRoomsCleared -= 1;
+  }
+  const roomPosition = getZoneRoomForIndex(displayRoomsCleared);
   const zoneName = zonePath[roomPosition.zone] || roomPosition.zone;
   const zoneLetter = getZoneLetter(roomPosition.zone).toUpperCase();
   const zoneLabel = `Zone ${roomPosition.zone}${zoneLetter}: The ${zoneName}`;
