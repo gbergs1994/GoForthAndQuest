@@ -15,7 +15,8 @@ RUN mkdir -p /var/www/html/backend/data \
     && chown -R www-data:www-data /var/www/html/backend/data \
     && chmod -R 775 /var/www/html/backend/data
 
-# Configure Apache port dynamically from environment variable PORT (default 80)
-RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/0000-default.conf /etc/apache2/ports.conf
+# Configure Apache port dynamically from environment variable PORT (defaults to 80 if not set)
+ENV PORT=80
+RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
 
 EXPOSE 80
